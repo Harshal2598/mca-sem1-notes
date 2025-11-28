@@ -89,4 +89,110 @@ Value of a: 50
 - **Call by Reference** → Efficient when modifying original value  
 
 Both methods help programmers control how data is shared between functions.
+# Call by Address in C++ (Using Pointers)
+
+**Call by Address** is a method of passing arguments to a function where the **address of the variable** is passed instead of the value.  
+This is done using **pointers**.
+
+Because the function receives the **memory address**, any changes made inside the function **directly modify the original variable**.
+
+---
+
+# ✔ How Call by Address Works
+- A pointer parameter receives the address of a variable.
+- Using `*` (dereference operator), the function can access and modify the actual variable.
+- Changes reflect in the original memory location.
+
+---
+
+# ✔ Syntax
+```cpp
+void functionName(int *ptr) {
+    // function body
+}
+```
+
+---
+
+# ✔ Example: Call by Address Using Pointers
+```cpp
+#include <iostream>
+using namespace std;
+
+// function using pointer to modify value
+void updateValue(int *p) {
+    *p = 50;   // modifies original value
+}
+
+int main() {
+    int x = 10;
+
+    updateValue(&x);   // passing address of x
+
+    cout << "Value of x: " << x;  // Output: 50
+    return 0;
+}
+```
+
+---
+
+# ✔ Explanation
+
+### In `main()`:
+```cpp
+int x = 10;
+updateValue(&x);
+```
+- `&x` passes the **address** of `x`.
+
+### In `updateValue()`:
+```cpp
+void updateValue(int *p) {
+    *p = 50;
+}
+```
+- `p` stores the address of `x`.  
+- `*p` accesses the value at that address.  
+- Changing `*p` modifies the original variable.
+
+---
+
+# 📌 When to Use Call by Address?
+
+- When you want the function to **modify the original variable**.
+- When passing large objects (more efficient).
+- Useful in swapping, updating values, dynamic memory handling.
+
+---
+
+# ⭐ Example: Swapping Values Using Call by Address
+```cpp
+void swapValues(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    swapValues(&x, &y);
+
+    cout << "x = " << x << ", y = " << y;  // Output: x = 20, y = 10
+}
+```
+
+---
+
+# 🎯 Summary
+
+| Method | What is Passed? | Can Change Original Value? |
+|--------|------------------|----------------------------|
+| Call by Value | Copy of value | ❌ No |
+| Call by Address | Address (pointer) | ✔ Yes |
+| Call by Reference | Alias | ✔ Yes |
+
+**Call by Address** using pointers is powerful because it gives the function **direct access** to original variables.
+
+
 
