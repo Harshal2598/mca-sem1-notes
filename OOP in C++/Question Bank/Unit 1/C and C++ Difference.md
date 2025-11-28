@@ -1,4 +1,4 @@
-# Difference Between C and C++
+# Difference Between C and C++ // Procedural vs object oriented programming
 
 | **Point** | **C** | **C++** |
 |----------|--------|---------|
