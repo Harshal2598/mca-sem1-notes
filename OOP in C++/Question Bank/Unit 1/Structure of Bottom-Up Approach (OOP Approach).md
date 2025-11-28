@@ -103,4 +103,92 @@ Objects  →  Classes  →  Modules  →  Subsystems  →  Final System
 # 🎯 Conclusion
 The **Bottom-Up Approach** builds programs by first designing the smallest units (classes & objects) and then assembling them into a complete application.  
 It is the foundation of **Object-Oriented Programming (OOP)** and widely used in modern software development.
+# Example Program Showing Bottom-Up Approach in C++
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// 1. Smallest Unit → Class (Building Block)
+class Student {
+private:
+    string name;
+    int marks;
+
+public:
+    // Constructor to initialize object
+    Student(string n, int m) {
+        name = n;
+        marks = m;
+    }
+
+    // Behavior/Method
+    void display() {
+        cout << "Name: " << name << ", Marks: " << marks << endl;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+};
+
+// 2. Another Small Unit → Class
+class ResultProcessor {
+public:
+    // Processes marks (works as another building block)
+    void calculateResult(Student s) {
+        if (s.getMarks() >= 35)
+            cout << "Status: Pass" << endl;
+        else
+            cout << "Status: Fail" << endl;
+    }
+};
+
+// 3. Combine Objects to Build System (Bottom-Up)
+int main() {
+    // Create objects of small units
+    Student s1("Harshal", 80);
+    ResultProcessor rp;
+
+    // Combine behaviors
+    s1.display();
+    rp.calculateResult(s1);
+
+    return 0;
+}
+```
+
+---
+
+# ✔ How This Follows Bottom-Up Approach
+
+1. **Start with small units (classes)**
+   - `Student`
+   - `ResultProcessor`
+
+2. **Create objects**  
+   - `Student s1(...)`  
+   - `ResultProcessor rp`
+
+3. **Combine small units to form bigger system**
+   - Display student details  
+   - Process result  
+
+4. **Program builds UPWARDS from small modules to final system**
+
+---
+
+# ⭐ Final Output
+
+```
+Name: Harshal, Marks: 80
+Status: Pass
+```
+
+---
+
+If you want, I can also provide:
+✔ A Top-Down version of the same program  
+✔ Diagram for bottom-up flow  
+✔ GitHub-ready explanation for your `.md` file
 
